@@ -13,19 +13,18 @@
 //STEPS
 //1.) Assume first element is the longestWord
 //2.) loop through given set and if any element is longer than longestWord, set new longestWord to length of element
-//3.) end
 //_________________________________________________________________________________________________
 
 function longest(words) {
     let newWords = [...words];
     let longestWord = newWords[0].length;
-    newWords.map(elem =>{
+    newWords.map(elem =>{   //looping through words and comparing thier lengths
         if(elem.length > longestWord){
             longestWord = elem.length;
         }
     })
-    console.log(longestWord);
-    return longestWord; //code here
+    console.log(longestWord);//prints longest word length.
+    return longestWord; 
   }
 
 

@@ -53,33 +53,18 @@ function openOrSenior(data){
     let category = [];
     let input = [...data]; //copy array in new variable to avoid side effect.
     console.log(input);
-    // Validate input types
-    // input = input.map(
-    //   function(pair){
-    //     if(typeof(pair[0]) != "number" || typeof(pair[1]) != "number"){
-    //       return "Wrong input" 
-    //     }});
-       
-    // Peform Check, categorize and add category to category array
-
     // Method one
-    // for(let i=0;i<input.length;i++){
-    //   if(input[i][0] >= 55 && input[i][1] > 7){
-    //                 category.push("Senior")
-    //               }else{
-    //                 category.push("Open")
-    //               }
-    // }
-    //Method Two
-   input = input.map(function(elem){ if(elem[0] >= 55 && elem[1] > 7){category.push("Senior");}else{ category.push("Open");}} );
-  // input = input.map(function(elem){ 
-  //       if(elem[0] >= 55 && elem[1]>7){
-  //             category.push("Senior");
-  //           }else{
-  //             category.push("Open");
-  //           }}
-  //           );
-     console.log(category);
+    for(let i=0;i<input.length;i++){
+      if(input[i][0] >= 55 && input[i][1] > 7){
+                    category.push("Senior")
+                  }else{
+                    category.push("Open")
+                  }
+    }
+    //Method Two//______________________________________________________________________________________________________________
+    //    input = input.map(function(elem){ if(elem[0] >= 55 && elem[1] > 7){category.push("Senior");}else{ category.push("Open");}} );
+    //__________________________________________________________________________________________________________________________
+        console.log(category);
           return category;
   }
 

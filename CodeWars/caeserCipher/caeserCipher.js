@@ -34,16 +34,9 @@ function encryptor(key, message) {
 
 
     for(let i = 0; i<splittedMessage.length;i++){
-        // console.log(alphabetArr.indexOf(splittedMessage[i]))
-       
         if(alphabetArrUpper.indexOf(splittedMessage[i]) == -1 && alphabetArrLower.indexOf(splittedMessage[i]) == -1){
             finalArr.push(splittedMessage[i]);
         }else if(alphabetArrUpper.indexOf(splittedMessage[i]) != -1){
-            // if(alphabetArr.indexOf(splittedMessage[i])<13){
-            //     finalArr.push(alphabetArr[alphabetArr.indexOf(splittedMessage[i]) + 13])
-            // }else(
-            //     finalArr.push(alphabetArr[alphabetArr.indexOf(splittedMessage[i]) - 13])
-            // ) 
             newKey = alphabetArrUpper.indexOf(splittedMessage[i]) + key
         while(newKey < 0){
             newKey = newKey + 26
@@ -53,11 +46,6 @@ function encryptor(key, message) {
         }
             finalArr.push(alphabetArrUpper[newKey])
         }else if(alphabetArrLower.indexOf(splittedMessage[i]) != -1){
-            // if(alphabetArr.indexOf(splittedMessage[i])<13){
-            //     finalArr.push(alphabetArr[alphabetArr.indexOf(splittedMessage[i]) + 13])
-            // }else(
-            //     finalArr.push(alphabetArr[alphabetArr.indexOf(splittedMessage[i]) - 13])
-            // ) 
             newKey = alphabetArrLower.indexOf(splittedMessage[i]) + key
         while(newKey < 0){
             newKey = newKey + 26

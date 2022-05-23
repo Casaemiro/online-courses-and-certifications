@@ -21,30 +21,12 @@
 
 
 function sumFromString(str){
-
-    // ...
-    //newStr = str.split("");
-    // let strRegexhyphen = str.match(/[0-9]+-[0-9]+/g);
     let strRegexPeriod = str.match(/[0-9]+/g);
     if(strRegexPeriod == null){
         return 0;
     }
-    // for(let i = 0;i < strRegexPeriod.length;i++){
-    //     let No = newStr.splice(newStr.indexOf(strRegexPeriod[i][0]),strRegexPeriod[i].length)
-    // }
-    // let regexArr = strRegexPeriod.map(elem => elem.split(/[.-]/));
-    // let finalNewStr = newStr.join("");
-    // let strRegexhyphen = finalNewStr.match(/[0-9]+/g);
-    // regexArr.push(strRegexhyphen)
-    // let finalArr = regexArr.flat();
     console.log(strRegexPeriod);
     let sum = strRegexPeriod.reduce((sum, num) => +sum + +num)
-    // // console.log(strRegexhyphen);
-   
-    // console.log(regexArr);
-    // console.log(finalNewStr);
-    // console.log(strRegexhyphen);
-    // console.log(finalArr)
     console.log(sum);
     //console.log(typeof(strRegexPeriod[0]))
     return +sum;
