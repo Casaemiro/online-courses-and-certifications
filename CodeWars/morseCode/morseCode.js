@@ -43,5 +43,29 @@
 
 
 //Steps//_______________________________________________________________________________________
+//1.) remove spaces at the beginning and end.
+//2.) seperate morse code at "three spaces" and store morse words in an array
+//3.) for each morse code word, seperate at " " simultaneously check up the letter in the provided dictionary
+//____________________________________________________________________________________________
+
+decodeMorse = function(morseCode){
+    let trimedMorseCode = morseCode.trim()
+    let splittedMorseCodeWords = trimedMorseCode.split("   ");
+    let convertedMorseCode = []
+    for(let i = 0; i < splittedMorseCodeWords.length; i++){
+        let splittedMorseCodeLetters = splittedMorseCodeWords[i].split(" ");
+        for(let j = 0; j < splittedMorseCodeLetters.length;j++){
+            convertedMorseCode.push(MORSE_CODE[splittedMorseCodeLetters[j]])
+        }
+        let indexOfLastElement = splittedMorseCodeWords.length - 1
+        if(i < indexOfLastElement){
+        convertedMorseCode.push(" ");
+       }
+    }
+    let finalconvertedMorseCode = convertedMorseCode.join("")
+    console.log(finalconvertedMorseCode)
+    return finalconvertedMorseCode
+
+  }
 
 //TESTS
