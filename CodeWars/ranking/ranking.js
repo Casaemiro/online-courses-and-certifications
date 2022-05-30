@@ -40,3 +40,84 @@
 // user.rank # => -7 // rank was upgraded to -7
 
 // Note: Codewars no longer uses this algorithm for its own ranking system. It uses a pure Math based solution that gives consistent results no matter what order a set of ranked activities are completed at.
+
+//steps//_______________________________________________________________________
+class User{
+    
+    constructor(){
+        this.allowedValues = [-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8];
+        this.rank = -8;
+        this.progress = 0;
+    }
+    
+    // rank(inputRank){
+    //    this.currentRank = inputRank;
+    //    return this.currentRank;
+    // }
+    // progress(){
+    //     return this.currentProgress
+    // }
+    incProgress(activityRank){
+      console.log(this.rank)
+      console.log(this.progress)
+        if(this.allowedValues.includes(activityRank)){
+          console.log("test");
+        if(activityRank == this.rank ){
+            this.progress += 3;
+          console.log(this.progress);
+          
+        }else if(activityRank == (this.rank - 1)){
+            this.progress += 1;
+          console.log(this.progress);
+        }else if(activityRank == 1 && this.rank == - 1){
+            this.progress += 10;
+          console.log(this.progress);
+        }else if(this.rank < activityRank){
+             if(this.rank < 0 && activityRank > 0){
+               activityRank--
+             }
+            this.progress += 10 * (activityRank - this.rank)**2
+          console.log(this.progress);
+          console.log("this is it");
+        }else if(this.rank == -1 && activityRank == 1){
+            this.progress += 10;
+          console.log(this.progress);
+        }else if(this.rank == 1 && activityRank == -1){
+            this.progress += 1;
+          console.log(this.progress);
+        }
+        if(this.progress >= 100){
+            this.rank += Math.floor(this.progress/100);
+            console.log(this.progress);
+            this.progress -= Math.floor(this.progress/100)*100;
+          console.log(this.progress);
+        }
+        if(this.rank == 0){
+            this.rank++;
+        }
+        if(this.rank >= 8){
+            this.rank = 8;
+          this.progress = 0;
+    }}else{
+      throw "invalid entry"
+    }
+console.log(this.progress);
+//       console.log("test");
+      return this.progress
+}
+  
+}
+
+// var user = new User(){
+
+// }
+// user.rank // => -8
+// user.progress // => 0
+// user.incProgress(-7)
+// user.progress // => 10
+// user.incProgress(-5) // will add 90 progress
+// user.progress # => 0 // progress is now zero
+// user.rank # => -7 // rank was upgraded to -7
+
+
+//tests
