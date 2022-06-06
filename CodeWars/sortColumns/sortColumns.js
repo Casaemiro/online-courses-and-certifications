@@ -54,16 +54,17 @@ function sortCsvColumns(csvFileContent) {
             if(sortedArray[j] == finalSeparatedArray[i][0].toLowerCase()){
                 final.push(finalSeparatedArray[i])
             }
-        }
+        } 
     }
-    let newRow1 = final.map(elem => elem[0]).join(";");
-    let newRow2 = final.map(elem => elem[1]).join(";");
-    let newRow3 = final.map(elem => elem[2]).join(";");
+    
+    let newRow = []
+    for(let i = 0; i < final[0].length; i++){
+        newRow.push(final.map(elem => elem[i]).join(";"));
+    }
+    newRow2 = newRow.join("\n")
 
-    // return finalSeparatedArray[3].includes(sortedArray[0])
-    let toBeExported = newRow1 + "\n" + newRow2 + "\n" + newRow3;
-    console.log(toBeExported)
-    return toBeExported;
+    console.log(newRow2)
+    return newRow2;
 }
 
 
