@@ -49,26 +49,121 @@
 function simple_assembler(program) {
 	/* return a dictionary with the registers */
     let register = [];
+    let regis = {};
     for (let i = 0; i < program.length; i++) {
         command = program[i].split(" ")
-        console.log(command[0])
+        // console.log(command)
+
+
+        
+
+
         switch(command[0])
         {
             case "mov":
-                register.push([command[1],command[2]])
+                
+                // let wow;
+                
+                if(typeof(+command[2]) == "number"){
+                register.push([`${command[1]}`,`${+command[2]}`])
+                // console.log(typeof(+command[2]) == "number")
+
+                }else{
+                    console.log("wooooooooo")
+                //     for(let j = 0;j<register.length; j++){
+                //     if(command[2] == register[j][0] && register[j][0]!= null){
+                //         wow = register[j][1];
+                //         register.push([`${command[1]}`,wow])
+                //     }
+                // }
+                }
+                break
             case 'inc':
-                for(let i = 0;i<register.length; i++){
-                    
+                for(let j = 0;j<register.length; j++){
+                        if(command[1] == register[j][0]){
+                            // console.log(register[j][1])
+                            register[j][1]+=1;
+                        }
                 }
+                break
             case 'dec':
-                `${register}.${command[1]}--`
+                for(let j = 0;j<register.length; j++){
+                    if(command[1] == register[j][0]){
+                        register[j][1] -= 1;
+                    }
+            }
+            break
             case 'jnz':
-                if(`${register}.${command[1]}` != 0){
-                    i += command[2];
+                for(let j = 0;j<register.length; j++){
+                    if(command[1] == register[j][0] && register[j][1] != 0){
+                        // if(+command[2] < 0){
+                            i += +command[2] - 1;
+                        // }else{
+                        //     i += +command[2]
+                        // }
+                    }
                 }
+                break
+            
         }
-    }
-	return register;
+
+    //    console.log(register)
+    } 
+
+        for(let j = 0;j<register.length; j++){
+           regis[`${register[j][0]}`] = register[j][1];
+        }
+	return regis;
 }
 
-console.log(simple_assembler(['mov a 5','inc a','dec a','dec a','jnz a -1', 'inc a']))
+console.log(simple_assembler(['mov a -10','mov b a','inc a','dec b','jnz a -2']))
+// console.log(simple_assembler(['mov a 5','inc a','dec a','dec a','jnz a -1', 'inc a']))
+// function simple_assembler(program) {
+// 	/* return a dictionary with the registers */
+//     let register = [];
+//     for (let i = 0; i < program.length; i++) {
+//         command = program[i].split(" ")
+//         console.log(command)
+//         switch(command[0])
+//         {
+//             case "mov":
+//                 register.push([command[1],+command[2]])
+//                 break
+//             case 'inc':
+//                 for(let j = 0;j<register.length; j++){
+//                         if(command[1] == register[j][0]){
+//                             console.log(register[j][1])
+//                             register[j][1]+=1;
+//                         }
+//                 }
+//                 break
+//             case 'dec':
+//                 for(let j = 0;j<register.length; j++){
+//                     if(command[1] == register[j][0]){
+//                         register[j][1] -= 1;
+//                     }
+//             }
+//             break
+//             case 'jnz':
+//                 for(let j = 0;j<register.length; j++){
+//                     if(command[1] == register[j][0] && register[j][1] != 0){
+//                         // if(+command[2] < 0){
+//                             i += +command[2] - 1;
+//                         // }else{
+//                         //     i += +command[2]
+//                         // }
+                        
+//                         console.log(i)
+//                     }
+//                 }
+//                 break
+            
+//         }
+       
+       
+//     } let regis = {};
+//         for(let j = 0;j<register.length; j++){
+//            regis[`${register[j][0]}`] = register[j][1];
+//         } console.log(regis)
+// 	return regis;
+// }

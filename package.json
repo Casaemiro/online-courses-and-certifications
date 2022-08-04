@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "jest": "^28.1.0",
+    "jest": "^28.1.1",
     "pnpm": "^7.1.8"
   },
   "scripts": {
